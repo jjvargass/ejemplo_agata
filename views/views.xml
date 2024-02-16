@@ -1,28 +1,39 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-<!--
+
     <record model="ir.ui.view" id="ejemplo_agata.list">
       <field name="name">ejemplo_agata list</field>
       <field name="model">ejemplo_agata.ejemplo_agata</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
+          <!-- <field name="value"/>
+          <field name="value2"/> -->
         </tree>
       </field>
     </record>
--->
+
 
     <!-- actions opening views on models -->
-<!--
+
     <record model="ir.actions.act_window" id="ejemplo_agata.action_window">
-      <field name="name">ejemplo_agata window</field>
+      <field name="name">Ejemplo Módulo Agata window</field>
       <field name="res_model">ejemplo_agata.ejemplo_agata</field>
       <field name="view_mode">tree,form</field>
     </record>
--->
+
+    <record model="ir.actions.act_window" id="ejemplo_agata.action_window_02">
+      <field name="name">Ejemplo Módulo Agata window</field>
+      <field name="res_model">ejemplo_agata.ejemplo_agata</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="ejemplo_agata.action_window_03">
+      <field name="name">Ejemplo Módulo Agata window</field>
+      <field name="res_model">ejemplo_agata.ejemplo_agata</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
     <!-- server action to the one above -->
 <!--
@@ -41,20 +52,32 @@
 -->
 
     <!-- Top menu item -->
-<!--
-    <menuitem name="ejemplo_agata" id="ejemplo_agata.menu_root"/>
--->
+
+    <menuitem name="Ejemplo Módulo Agata" id="ejemplo_agata.menu_root"/>
+
     <!-- menu categories -->
-<!--
+
     <menuitem name="Menu 1" id="ejemplo_agata.menu_1" parent="ejemplo_agata.menu_root"/>
-    <menuitem name="Menu 2" id="ejemplo_agata.menu_2" parent="ejemplo_agata.menu_root"/>
--->
+
+    <menuitem name="Reportes" id="ejemplo_agata.menu_2" parent="ejemplo_agata.menu_root"/>
+
+      <menuitem name="Certificado Laboral" id="ejemplo_agata.sub_menu_1" parent="ejemplo_agata.menu_2" sequence="10"/>
+
+      <menuitem name="Informe Contraloria" id="ejemplo_agata.sub_menu_2" parent="ejemplo_agata.menu_2" sequence="20"/>
+
     <!-- actions -->
-<!--
+
     <menuitem name="List" id="ejemplo_agata.menu_1_list" parent="ejemplo_agata.menu_1"
               action="ejemplo_agata.action_window"/>
-    <menuitem name="Server to list" id="ejemplo_agata" parent="ejemplo_agata.menu_2"
-              action="ejemplo_agata.action_server"/>
--->
+
+    <menuitem name="Certificado Personal" id="ejemplo_agata_1" parent="ejemplo_agata.sub_menu_1"
+              action="ejemplo_agata.action_window_02"/>
+
+    <menuitem name="Certificado Horas" id="ejemplo_agata_3" parent="ejemplo_agata.sub_menu_1"
+              action="ejemplo_agata.action_window_03"/>
+
+    <menuitem name="Server to list" id="ejemplo_agata_2" parent="ejemplo_agata.sub_menu_2"
+              action="ejemplo_agata.action_window_02"/>
+
   </data>
 </odoo>
