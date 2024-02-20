@@ -2,7 +2,7 @@
   <data>
     <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="ejemplo_agata.list">
+    <record id="ejemplo_agata.list" model="ir.ui.view" >
       <field name="name">ejemplo_agata list</field>
       <field name="model">ejemplo_agata.ejemplo_agata</field>
       <field name="arch" type="xml">
@@ -17,19 +17,19 @@
 
     <!-- actions opening views on models -->
 
-    <record model="ir.actions.act_window" id="ejemplo_agata.action_window">
+    <record id="ejemplo_agata.action_window" model="ir.actions.act_window" >
       <field name="name">Ejemplo Módulo Agata window</field>
       <field name="res_model">ejemplo_agata.ejemplo_agata</field>
       <field name="view_mode">tree,form</field>
     </record>
 
-    <record model="ir.actions.act_window" id="ejemplo_agata.action_window_02">
+    <record id="ejemplo_agata.action_window_02" model="ir.actions.act_window" >
       <field name="name">Ejemplo Módulo Agata window</field>
       <field name="res_model">ejemplo_agata.ejemplo_agata</field>
       <field name="view_mode">tree,form</field>
     </record>
 
-    <record model="ir.actions.act_window" id="ejemplo_agata.action_window_03">
+    <record id="ejemplo_agata.action_window_03" model="ir.actions.act_window">
       <field name="name">Ejemplo Módulo Agata window</field>
       <field name="res_model">ejemplo_agata.ejemplo_agata</field>
       <field name="view_mode">tree,form</field>
@@ -53,25 +53,36 @@
 
     <!-- Top menu item -->
 
-    <menuitem name="Ejemplo Módulo Agata" id="ejemplo_agata.menu_root"/>
+    <menuitem id="ejemplo_agata.menu_root" name="Ejemplo Módulo Agata"/>
+
+    <!-- MENU 1 -->
 
     <!-- menu categories -->
 
     <menuitem name="Menu 1" id="ejemplo_agata.menu_1" parent="ejemplo_agata.menu_root"/>
-
-    <menuitem name="Reportes" id="ejemplo_agata.menu_2" parent="ejemplo_agata.menu_root"/>
-
-      <menuitem name="Certificado Laboral" id="ejemplo_agata.sub_menu_1" parent="ejemplo_agata.menu_2" sequence="10"/>
-
-      <menuitem name="Informe Contraloria" id="ejemplo_agata.sub_menu_2" parent="ejemplo_agata.menu_2" sequence="20"/>
 
     <!-- actions -->
 
     <menuitem name="List" id="ejemplo_agata.menu_1_list" parent="ejemplo_agata.menu_1"
               action="ejemplo_agata.action_window"/>
 
-    <menuitem name="Certificado Personal" id="ejemplo_agata_1" parent="ejemplo_agata.sub_menu_1"
-              action="ejemplo_agata.action_window_02"/>
+
+    <!-- REPORTES -->
+
+    <!-- menu categories -->
+
+    <menuitem id="ejemplo_agata.menu_2" name="Reportes" parent="ejemplo_agata.menu_root"/>
+
+      <menuitem id="ejemplo_agata.sub_menu_1" name="Certificado Laboral"  parent="ejemplo_agata.menu_2" sequence="10"/>
+
+      <menuitem id="ejemplo_agata.sub_menu_2" name="Informe Contraloria"  parent="ejemplo_agata.menu_2" sequence="20"/>
+
+    <!-- actions -->
+
+    <!-- validar en bd limpia si se puede hacer el llamado desde el documento del wizard -->
+
+    <!-- <menuitem name="Certificado Personal" id="ejemplo_agata_1" parent="ejemplo_agata.sub_menu_1"
+              action="ejemplo_agata.action_window_02"/> -->
 
     <menuitem name="Certificado Horas" id="ejemplo_agata_3" parent="ejemplo_agata.sub_menu_1"
               action="ejemplo_agata.action_window_03"/>

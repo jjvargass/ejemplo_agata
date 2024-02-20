@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="ejemplo_agata_crear_reporte_view_form_download" model="ir.ui.view" >
+        <field name="name">ejemplo_agata.crear_reporte.view_form_download</field>
+        <field name="model">ejemplo_agata.wizard.test</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <separator name="string1" string="Descargar Reporte AGATA Demo"/>
+                    <group col="2" colspan="4">
+                        <field name="archivo" readonly="1" width="100" filename="nombre_archivo" widget="binary"/>
+                        <field name="nombre_archivo" invisible="1"/>
+                    </group>
+                    <footer>
+                        <button string="Cancelar" special="cancel" />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ejemplo_agata_crear_reporte_view_form" model="ir.ui.view" >
+        <field name="name">ejemplo_agata.crear_reporte.view_form</field>
+        <field name="model">ejemplo_agata.wizard.test</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <separator name="string1" string="Reporte AGATA"/>
+                    <group col="2" colspan="4">
+                        <field name="empleado" required="1"/>
+                    </group>
+                    <footer>
+                        <button string="Crear Reporte" name="action_crear_reporte" type="object" class="btn-primary"/>
+                        <button string="Cancelar" special="cancel" />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ejemplo_agata.act_window_crear_reporte_wizard" model="ir.actions.act_window">
+        <field name="name">Crear Reporte Empleado</field>
+        <field name="res_model">ejemplo_agata.wizard.test</field>
+        <field name="target">new</field>
+        <field name="view_mode">form</field>
+    </record>
+
+
+    <menuitem name="Certificado Personal" id="ejemplo_agata_1" parent="ejemplo_agata.sub_menu_1"
+              action="ejemplo_agata.act_window_crear_reporte_wizard"/>
+
+</odoo>
