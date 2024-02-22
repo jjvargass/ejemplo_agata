@@ -8,28 +8,24 @@ class BaseAgataWizardTest(models.TransientModel):
     _name = 'ejemplo_agata.wizard.test'
     _description = 'Test Wizard 01'
 
-
     # -------------------
     # Fields
     # -------------------
 
     empleado = fields.Many2one(
         string='Empleado',
-        #required=True,
         track_visibility='onchange',
         comodel_name='hr.employee',
         ondelete='restrict',
         help='''Empleado para Reporte''',
-        domain= "[('user_id','!=',False)]",
     )
     archivo = fields.Binary('Archivo',readonly=True,filters="xls")
     nombre_archivo = fields.Char('Nombre del Archivo', size=255)
 
+
     def action_crear_reporte(self):
-        all_data = {
-            "nombre_empleado": 'JOSE JAVIER VARGAS SERRATO',
-            "beingPaidForIt": False,
-        }
+        # Construir data
+        all_data = self.get_informacion_contrato()
 
         # Ruta Actual
         separador = os.path.sep  # obtiene segun el sistema operativo
@@ -69,3 +65,25 @@ class BaseAgataWizardTest(models.TransientModel):
                 'view_id':view_ids.id,
                 'res_id': self.id,
         }
+
+
+    def get_informacion_contrato(self):
+        contrato = self.env['hr.contract'].search([
+            ('employee_id', '=', self.empleado.id),
+            ('state', '=', 'open' ),
+        ])
+        nomb_empleado = self.empleado.name.upper()
+
+        if (len(contrato) == 0):
+            raise ValidationError("El Empleado " + nomb_empleado + " no tiene Contratos Activos")
+        elif (len(contrato) > 1):
+            raise ValidationError("El Empleado " + nomb_empleado + " tiene mas de 1 contrato activo. \nSe de actualizar los estado de los contatos.\nRecuerde que no esta permitido tener mas de 1 contrato activo.")
+
+        data_contrato = {
+            "nombre_empleado": nomb_empleado,
+            "num_cedula" : self.empleado.identification_id,
+            "fecha_inicio_contrato" : contrato.date_start,
+            "cargo_empleado" : self.empleado.job_id.name,
+            "tipo_contrato_empleado" : contrato.contract_type_id.name,
+        }
+        return data_contrato
