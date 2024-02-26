@@ -79,6 +79,17 @@ class BaseAgataWizardTest(models.TransientModel):
         elif (len(contrato) > 1):
             raise ValidationError("El Empleado " + nomb_empleado + " tiene mas de 1 contrato activo. \nSe de actualizar los estado de los contatos.\nRecuerde que no esta permitido tener mas de 1 contrato activo.")
 
+        errores = ""
+        if not self.empleado.identification_id:
+            errores = errores + "\nEl numero de ciudadania no esta registrado."
+        if not self.empleado.job_id.name:
+            errores = errores + "\nEl puesto de trabajo no esta registrado."
+        if not contrato.contract_type_id.name:
+            errores = errores + "\nEl tipo de contrato no esta registrado."
+
+        if errores:
+            raise ValidationError("Se requiere completar la siguietne información para el Empleado " + nomb_empleado + ":" + errores )
+
         data_contrato = {
             "nombre_empleado": nomb_empleado,
             "num_cedula" : self.empleado.identification_id,
