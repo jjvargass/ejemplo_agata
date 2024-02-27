@@ -31,6 +31,7 @@
         'views/views.xml',
         'views/templates.xml',
         'wizards/reporte_empleado_view.xml',
+        'wizards/reporte_lista_empleado_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

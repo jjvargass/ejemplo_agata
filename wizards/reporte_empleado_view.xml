@@ -46,7 +46,6 @@
         <field name="view_mode">form</field>
     </record>
 
-
     <menuitem name="Certificado Personal" id="ejemplo_agata_1" parent="ejemplo_agata.sub_menu_1"
               action="ejemplo_agata.act_window_crear_reporte_wizard"/>
 

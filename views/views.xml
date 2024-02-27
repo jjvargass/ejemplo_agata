@@ -79,14 +79,6 @@
 
     <!-- actions -->
 
-    <!-- validar en bd limpia si se puede hacer el llamado desde el documento del wizard -->
-
-    <!-- <menuitem name="Certificado Personal" id="ejemplo_agata_1" parent="ejemplo_agata.sub_menu_1"
-              action="ejemplo_agata.action_window_02"/> -->
-
-    <menuitem name="Certificado Horas" id="ejemplo_agata_3" parent="ejemplo_agata.sub_menu_1"
-              action="ejemplo_agata.action_window_03"/>
-
     <menuitem name="Server to list" id="ejemplo_agata_2" parent="ejemplo_agata.sub_menu_2"
               action="ejemplo_agata.action_window_02"/>
 

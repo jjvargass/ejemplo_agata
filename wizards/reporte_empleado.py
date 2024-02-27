@@ -14,7 +14,6 @@ class BaseAgataWizardTest(models.TransientModel):
 
     empleado = fields.Many2one(
         string='Empleado',
-        track_visibility='onchange',
         comodel_name='hr.employee',
         ondelete='restrict',
         help='''Empleado para Reporte''',

@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_ejemplo_agata_ejemplo_agata,ejemplo_agata.ejemplo_agata,model_ejemplo_agata_ejemplo_agata,base.group_user,1,1,1,1
-access_ejemplo_agata_wizard_test,Regla 01: Acceso para el modelo del Wizard,model_ejemplo_agata_wizard_test,,1,1,1,1
+access_ejemplo_agata_wizard_test,Regla 01: Acceso para el modelo ejemplo_agata.wizard.test,model_ejemplo_agata_wizard_test,,1,1,1,1
+access_ejemplo_agata_wizard_lista_empleados,Regla 02: Acceso para el modelo ejemplo_agata.wizard.lista.empleados,model_ejemplo_agata_wizard_lista_empleados,,1,1,1,1
