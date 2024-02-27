@@ -17,8 +17,16 @@ class BaseAgataWizardListaEmpleado(models.TransientModel):
         ondelete='restrict',
         help='''Departamento''',
     )
-    archivo = fields.Binary('Archivo',readonly=True,filters="xls")
-    nombre_archivo = fields.Char('Nombre del Archivo', size=255)
+    archivo = fields.Binary(
+        string='Archivo',
+        readonly=True,
+        help='''Archivo binario para descargas''',
+    )
+    nombre_archivo = fields.Char(
+        string='Nombre del Archivo',
+        size=255,
+        help='''String para nombre del archivo a descargar''',
+    )
 
     def action_reporte_lista_empleados(self):
         print("hola")
