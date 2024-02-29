@@ -28,7 +28,7 @@
                 <sheet>
                     <separator name="string1" string="Reporte AGATA Lista Empelados"/>
                     <group col="2" colspan="4">
-                        <field name="departamento" required="1"/>
+                        <field name="departamento"/>
                     </group>
                     <footer>
                         <button string="Crear Reporte" name="action_reporte_lista_empleados" type="object" class="btn-primary"/>

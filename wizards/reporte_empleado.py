@@ -64,13 +64,13 @@ class BaseAgataWizardTest(models.TransientModel):
 
         # Retornar Vista
         return {
-                'view_type':'form',
-                'view_mode':'form',
-                'res_model':'ejemplo_agata.wizard.test',
-                'target':'new',
-                'type':'ir.actions.act_window',
-                'view_id':view_ids.id,
-                'res_id': self.id,
+            'view_type':'form',
+            'view_mode':'form',
+            'res_model':'ejemplo_agata.wizard.test',
+            'target':'new',
+            'type':'ir.actions.act_window',
+            'view_id':view_ids.id,
+            'res_id': self.id,
         }
 
 
